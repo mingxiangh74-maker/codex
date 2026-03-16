@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2026 电影投票站</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>2026 新片投票与评分</h1>
+      <p>支持多选投票、单片评分与评论。你的每一票都很重要！</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>🔥 本周最想看（可多选）</h2>
+        <form id="vote-form" class="vote-grid"></form>
+        <div class="actions">
+          <button id="submit-vote" type="button">提交投票</button>
+          <button id="reset-vote" type="button" class="ghost">清空本周选择</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>📊 投票结果</h2>
+        <div id="vote-results" class="result-list"></div>
+      </section>
+
+      <section class="card">
+        <h2>⭐ 每部电影评分与评论</h2>
+        <div id="movie-list" class="movie-list"></div>
+      </section>
+    </main>
+
+    <template id="movie-template">
+      <article class="movie-item">
+        <div class="movie-head">
+          <h3 class="movie-title"></h3>
+          <span class="movie-release"></span>
+        </div>
+        <p class="movie-intro"></p>
+        <form class="rate-form">
+          <label>
+            你的评分（1-10）：
+            <input class="score-input" type="number" min="1" max="10" required />
+          </label>
+          <label>
+            评论：
+            <textarea class="comment-input" rows="2" maxlength="180" placeholder="写下你对这部电影的看法"></textarea>
+          </label>
+          <button type="submit">保存评分</button>
+        </form>
+        <div class="meta">
+          <strong>平均分：</strong><span class="avg-score">暂无</span>
+          <strong>评论数：</strong><span class="comment-count">0</span>
+        </div>
+        <ul class="comment-list"></ul>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
